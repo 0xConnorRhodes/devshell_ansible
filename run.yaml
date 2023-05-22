@@ -1,0 +1,32 @@
+---
+- name: Bootstrap vshell (verkada shell)
+  hosts: dev
+  remote_user: connor
+  vars_files:
+    - secrets.yaml
+    - packages.yaml
+
+  pre_tasks:
+  - name: install dnf packages
+    package:
+      name: "{{ dnf_packages }}"
+      state: latest
+    become: true
+
+  - name: install nix packages
+    #shell: echo "{{ nix_packages }}" | nix-env -i
+    shell: nix-env -i "{{ item }}"
+    loop:
+      - "{{ nix_packages }}"
+
+  roles:
+    - role: geerlingguy.docker
+      vars:
+        # these options ensure you can use `docker compose`
+        docker_install_compose_plugin: true
+        docker_compose_package: docker-compose-plugin
+        docker_compose_package_state: present
+        docker_users:
+          - connor # handles adding connor to the docker group 
+        # note: must use `su - connor` or reboot to have access to docker without sudo
+      become: true
