@@ -7,6 +7,12 @@
     - packages.yaml
 
   pre_tasks:
+  - name: Update packages
+    dnf:
+      name: "*"
+      state: latest
+    become: true
+
   - name: install dnf packages
     package:
       name: "{{ dnf_packages }}"
@@ -14,7 +20,6 @@
     become: true
 
   - name: install nix packages
-    #shell: echo "{{ nix_packages }}" | nix-env -i
     shell: nix-env -i "{{ item }}"
     loop:
       - "{{ nix_packages }}"
