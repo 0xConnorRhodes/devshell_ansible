@@ -1,0 +1,11 @@
+dnf_packages:
+  - ansible
+  - neovim
+  - git
+  - just
+  - bat
+
+nix_packages:
+  - chezmoi
+  - lazydocker
+  - magic-wormhole
