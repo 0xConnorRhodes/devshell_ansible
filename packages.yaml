@@ -4,8 +4,17 @@ dnf_packages:
   - git
   - just
   - bat
+  - curl
+  - tmux
+  - make # BEGIN python build deps (for asdf)
+  - gcc
+  - openssl-devel
+  - bzip2-devel
+  - libffi-devel
+  - zlib-devel # END
 
 nix_packages:
   - chezmoi
   - lazydocker
   - magic-wormhole
+  - asdf-vm
