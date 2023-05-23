@@ -5,6 +5,7 @@
   vars_files:
     - secrets.yaml
     - packages.yaml
+    - home-manager.yaml
 
   pre_tasks:
   - name: Update packages
@@ -19,10 +20,12 @@
       state: latest
     become: true
 
-  - name: install nix packages
-    shell: nix-env -i "{{ item }}"
-    loop:
-      - "{{ nix_packages }}"
+  - name: install packages with nix
+    shell: "nix-env -iA nixpkgs.{{ item }}"
+    loop: "{{ nix_packages }}"
+
+  - name: update tldr pages
+    shell: tldr --update
 
   roles:
     - role: geerlingguy.docker
