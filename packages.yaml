@@ -6,6 +6,8 @@ dnf_packages:
   - bat
   - curl
   - tmux
+  - ripgrep
+  - zoxide
   - make # BEGIN python build deps (for asdf)
   - gcc
   - openssl-devel
@@ -15,6 +17,6 @@ dnf_packages:
 
 nix_packages:
   - chezmoi
-  - lazydocker
-  - magic-wormhole
   - asdf-vm
+  - magic-wormhole
+  - lazydocker
