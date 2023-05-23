@@ -14,12 +14,14 @@ dnf_packages:
   - bzip2-devel
   - libffi-devel
   - zlib-devel # END
+  - distrobox
 
 nix_packages:
   - chezmoi
   - asdf-vm
   - magic-wormhole
   - lazydocker
+  - lf
 
 asdf_plugins:
   - python
