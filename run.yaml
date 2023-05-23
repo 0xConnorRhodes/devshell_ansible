@@ -23,14 +23,14 @@
     shell: "nix-env -iA nixpkgs.{{ item }}"
     loop: "{{ nix_packages }}"
 
-  - name: update tldr pages
-    shell: tldr --update
-
   - name: install asdf plugins
     shell: "asdf plugin-add {{ item }}"
     loop: "{{ asdf_plugins }}"
     register: command_output
     ignore_errors: true # needed because if plugin is already installed, asdf throws an error
+
+  - name: update tldr pages
+    shell: tldr --update
 
   roles:
     - role: geerlingguy.docker
