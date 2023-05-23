@@ -5,7 +5,6 @@
   vars_files:
     - secrets.yaml
     - packages.yaml
-    - home-manager.yaml
 
   pre_tasks:
   - name: Update packages
@@ -26,6 +25,12 @@
 
   - name: update tldr pages
     shell: tldr --update
+
+  - name: install asdf plugins
+    shell: "asdf plugin-add {{ item }}"
+    loop: "{{ asdf_plugins }}"
+    register: command_output
+    ignore_errors: true # needed because if plugin is already installed, asdf throws an error
 
   roles:
     - role: geerlingguy.docker

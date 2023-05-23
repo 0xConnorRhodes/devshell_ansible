@@ -20,3 +20,6 @@ nix_packages:
   - asdf-vm
   - magic-wormhole
   - lazydocker
+
+asdf_plugins:
+  - python
