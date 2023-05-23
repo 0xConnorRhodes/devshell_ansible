@@ -1,5 +1,5 @@
 ---
-- name: Bootstrap vshell (verkada shell)
+- name: Bootstrap devshell (fedora dev environment)
   hosts: dev
   remote_user: connor
   vars_files:
