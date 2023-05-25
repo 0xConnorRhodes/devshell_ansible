@@ -1,7 +1,7 @@
 ---
 - name: Bootstrap devshell (fedora dev environment)
   hosts: dev
-  remote_user: connor
+  remote_user: "{{ ansible_user }}"
   vars_files:
     - secrets.yaml
     - packages.yaml
@@ -9,8 +9,7 @@
   pre_tasks:
   - name: Update packages
     dnf:
-      name: "*"
-      state: latest
+      name: "*" state: latest
     become: true
 
   - name: install dnf packages
@@ -40,6 +39,6 @@
         docker_compose_package: docker-compose-plugin
         docker_compose_package_state: present
         docker_users:
-          - connor # handles adding connor to the docker group 
-        # note: must use `su - connor` or reboot to have access to docker without sudo
+          - "{{ ansible_user }}"
+        # note: must use `su - {{ ansible_user }}` or reboot to have access to docker without sudo
       become: true
