@@ -2,6 +2,6 @@ all:
   hosts:
     dev:
       ansible_host: 127.0.0.1
-      ansible_user: connor
+      ansible_user: "{{ ansible_user }}"
       ansible_connection: ssh
       ansible_ssh_port: "{{ ssh_port }}"
