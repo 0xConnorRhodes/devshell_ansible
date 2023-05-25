@@ -17,6 +17,7 @@ dnf_packages:
   - distrobox
   - tealdeer
   - fish
+  - htop
 
 nix_packages:
   - chezmoi
