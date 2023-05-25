@@ -9,13 +9,20 @@
   pre_tasks:
   - name: Update packages
     dnf:
-      name: "*" state: latest
+      name: "*" 
+      state: latest
     become: true
 
   - name: install dnf packages
     package:
       name: "{{ dnf_packages }}"
       state: latest
+    become: true
+
+  - name: ensure podman is removed
+    package:
+      name: podman
+      state: absent
     become: true
 
   - name: install packages with nix
