@@ -15,6 +15,8 @@ dnf_packages:
   - libffi-devel
   - zlib-devel # END
   - distrobox
+  - tealdeer
+  - fish
 
 nix_packages:
   - chezmoi
