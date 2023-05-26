@@ -25,10 +25,6 @@
       state: absent
     become: true
 
-  - name: install packages with nix
-    shell: "nix-env -iA nixpkgs.{{ item }}"
-    loop: "{{ nix_packages }}"
-
   - name: install asdf plugins
     shell: "asdf plugin-add {{ item }}"
     loop: "{{ asdf_plugins }}"
