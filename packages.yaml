@@ -18,7 +18,7 @@ dnf_packages:
   - tealdeer
   - fish
   - htop
-  - golang
+  - golang # for vim hexokinase
 
 nix_packages:
   - chezmoi
