@@ -1,5 +1,5 @@
 ---
-- name: Bootstrap devshell (fedora dev environment)
+- name: Bootstrap devshell (virtual dev environment)
   hosts: dev
   remote_user: "{{ ansible_user }}"
   vars_files:
@@ -8,12 +8,12 @@
 
   pre_tasks:
   - name: Update packages
-    dnf:
+    package:
       name: "*" 
       state: latest
     become: true
 
-  - name: install dnf packages
+  - name: install repo packages
     package:
       name: "{{ dnf_packages }}"
       state: latest
