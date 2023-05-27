@@ -18,6 +18,7 @@ dnf_packages:
   - tealdeer
   - fish
   - htop
+  - golang
 
 nix_packages:
   - chezmoi
