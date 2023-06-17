@@ -8,4 +8,5 @@ with import <nixpkgs> {}; [
   lazydocker
   lf
   zoxide
+  bat
 ]
