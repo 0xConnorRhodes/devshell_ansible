@@ -4,7 +4,7 @@ with import <nixpkgs> {}; [
   fish
   chezmoi
   asdf-vm
-  magic-wormhole
+  croc
   lazydocker
   lf
   zoxide
